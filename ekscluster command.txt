@@ -1,0 +1,44 @@
+AKIA4SMMCIPSZZY76G5V   access key
+
+jDFX41YqGAsl12Ol4gY3HRbr5lXYo2QOBaA/0jqh  secret access key
+
+
+
+aws configure
+   62  aws eks list-clusters
+   63  kubectl get nodes
+   64  aws configure
+   65  aws eks list-clusters
+   66  kubectl get nodes
+   67  aws eks list-clusters
+   68  aws eks list-clusters ekscluster
+   69  aws eks list-clusters
+   70  kubectl get nodes
+   71  ifconfig
+   72  history
+   73  ls
+   74  unzip awscliv2.zip 
+   75  history
+   76  sudo ./aws/install
+   77  sudo ./aws/install --update
+   78  aws configure
+   79  history
+   80  aws eks list-clusters
+   81  aws eks update-kubeconfig --name ekscluster --region us-east-1
+   82  kubectl get nodes
+   83  kubectl get pods --all-namespaces
+   84  nano pod.yml
+   85  kubectl apply -f pod.yml 
+   86  kubectl get pods 
+   87  kubectl get nodes
+   88  kubectl get pods 
+   89  nano pod.yml 
+   90  kubectl apply -f pod.yml 
+   91  nano pod.yml 
+   92  kubectl get pods 
+   93  kubectl delete pods nginx
+   94  kubectl apply -f pod.yml 
+   95  kubectl get pods 
+   96  kuebctl get all -o wide
+   97  kubectl  get all -o wide
+   98  history 

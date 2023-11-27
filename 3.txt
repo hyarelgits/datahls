@@ -1,0 +1,60 @@
+Library('hyarel-shared-library') _  
+def COLOR_MAP = [
+    'FAILURE' : 'danger',
+    'SUCCESS' : 'good'
+]
+pipeline{
+    agent any
+    tools{
+        jdk 'jdk17'
+        nodejs 'node21'
+    }
+    environment {
+        SCANNER_HOME=tool 'sonar-server'
+    }
+    parameters {
+    choice(name: 'action', choices: 'create\ndelete', description: 'Select create or destroy.')
+        }
+        stages {
+        stage('clean workspace'){
+            steps{
+                cleanWs()
+            }
+        }
+        stage('Checkout from Git'){
+            steps{
+                git branch: 'main', url: 'https://github.com/Aj7Ay/Youtube-clone-app.git'
+            }
+        }
+        stage('sonarqube Analysis'){
+        when { expression { params.action == 'create'}
+            steps{
+                sonarqubeAnalysis()
+            }
+        }
+        stage('sonarqube QualitGate'){
+        when { expression { params.action == 'create'}
+            steps{
+                script{
+                    def credentialsId = 'Sonar-token'
+                    qualityGate(credentialsId)
+                }
+            }
+        }
+        stage('Npm'){
+        when { expression { params.action == 'create'}
+            steps{
+                npmInstall()
+            }
+        }
+        post {
+        always {
+        echo 'Slack Notifications'
+        slackSend (
+            channel: '#splunk',   
+            color: COLOR_MAP[currentBuild.currentResult],
+            message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} \n build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
+        )
+    }
+}
+}

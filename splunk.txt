@@ -1,0 +1,10 @@
+wget https://download.splunk.com/products/splunk/releases/7.1.1/linux/splunk-7.1.1-8f0ead9ec3db-linux-2.6-amd64.deb
+   69  dpkg -i splunk-7.1.1-8f0ead9ec3db-linux-2.6-amd64.deb
+   70  sudo /opt/splunk/bin/splunk enable boot-
+   71  systemctl status splunk
+   72  systemctl status service.splunk
+   73  systemctl start spunk
+   74  systemctl start splunk
+   75  sudo /opt/splunk/bin/splunk enable boot-start
+   76  init 6
+   77  history

@@ -1,0 +1,23 @@
+sudo apt install software-properties-common
+   54  sudo add-apt-repository --yes --update ppa:ansible/ansible
+   55  sudo apt install ansible
+   56  ansible --version
+   57  sudo nano /etc/default/locale
+   58  sudo update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
+   59  init 6
+   60  ansible --version
+   61  history 
+
+sudo nano /etc/default/locale
+
+LANG="en_US.UTF-8"
+LC_CTYPE="en.US.UTF-8"
+
+
+
+sudo update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
+
+
+init 6
+
+
